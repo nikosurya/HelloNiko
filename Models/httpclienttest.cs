@@ -7,12 +7,13 @@ namespace httpclient
 {
     public class httpclienttest
     {
-        static HttpClient client = new HttpClient();
+       
 
         public async Task<string> GetProductAsync(string path)
         {
+             HttpClient client = new HttpClient();
 
-            string Hello = null;
+            string Hello = "";
             client.BaseAddress = new Uri("http://139.59.248.207:5501/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
