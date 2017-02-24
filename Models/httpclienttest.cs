@@ -14,7 +14,7 @@ namespace httpclient
         {
              HttpClient client = new HttpClient();
             
-            client.BaseAddress = new Uri("http://139.59.248.207:5502");
+            client.BaseAddress = new Uri("http://188.166.236.181:5502");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
              
