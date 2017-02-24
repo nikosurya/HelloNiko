@@ -14,7 +14,7 @@ namespace httpclient
         {
              HttpClient client = new HttpClient();
             
-            client.BaseAddress = new Uri("http://188.166.236.181:5502");
+            client.BaseAddress = new Uri("http://188.166.236.181:5501");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
              
@@ -23,7 +23,8 @@ namespace httpclient
                 HttpResponseMessage response =  client.GetAsync(path).Result;
                 if (response.IsSuccessStatusCode)
                 {
-                    Hello = await response.Content.ReadAsStringAsync();
+                    Hello = "response 200";
+                    //Hello = await response.Content.ReadAsStringAsync();
                     
                 }
             }catch (Exception e)
