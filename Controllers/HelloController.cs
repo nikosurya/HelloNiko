@@ -10,13 +10,12 @@ namespace hello.Controllers
     public class HelloController : Controller
     {
         httpclienttest client = new httpclienttest();
-        string address = "http://139.59.248.207:5501/api/selly/hello";
 
         // GET api/values
         [HttpGet]
         public async Task< IEnumerable<string>> Get()
         {
-          var hello = await  client.GetProductAsync(address); 
+          var hello = await  client.GetProductAsync("api/rifki/hello"); 
           return new string[] { "Hello Niko Memanggil service",hello};
         }
 
@@ -43,8 +42,6 @@ namespace hello.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-        }
-
-        
+        }        
     }
 }
