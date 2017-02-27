@@ -16,15 +16,15 @@ namespace httpclient
             
             client.BaseAddress = new Uri("http://188.166.236.181:5501");
             client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+           // client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
              
             try 
             {
                 HttpResponseMessage response =  client.GetAsync(path).Result;
                 if (response.IsSuccessStatusCode)
                 {
-                    Hello = "response 200";
-                    //Hello = await response.Content.ReadAsStringAsync();
+                   // Hello = "response 200";
+                    Hello = await response.Content.ReadAsStringAsync();
                     
                 }
             }catch (Exception e)
