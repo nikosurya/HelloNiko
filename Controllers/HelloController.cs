@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using httpclient;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 
 namespace hello.Controllers
@@ -9,14 +10,28 @@ namespace hello.Controllers
     [Route("api/niko/[controller]")]
     public class HelloController : Controller
     {
-        httpclienttest client = new httpclienttest();
+       
 
         // GET api/values
         [HttpGet]
         public async Task< IEnumerable<string>> Get()
         {
-          var hello = await  client.GetProductAsync("http://188.166.236.181:5501/api/selly/hello"); 
+        
+        
+          string hello = "";
+          HttpClient client = new HttpClient();
+          HttpResponseMessage hasil = await client.GetAsync("http://172.18.0.4:5000/api/rifki/hello");
+          try
+          {
+            hello = await hasil.Content.ReadAsStringAsync();
+          
+          }
+          catch
+          {
+            hello = ""+hasil.RequestMessage + hasil.StatusCode;
+          }
           return new string[] { "Hello Niko Memanggil service",hello};
+        
         }
 
         // GET api/values/5
